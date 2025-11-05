@@ -39,4 +39,20 @@ public class CommentTest
     public void tearDown()
     {
     }
+
+    @Test
+    public void testSameAuthor()
+    {
+        SalesItem salesIte1 = new SalesItem("TV", 29999);
+        assertEquals(true, salesIte1.addComment("John", "It's good", 5));
+        assertEquals(false, salesIte1.addComment("John", "Works as intended", 4));
+    }
+
+    @Test
+    public void testValidRating()
+    {
+        SalesItem salesIte1 = new SalesItem("TV", 39999);
+        assertEquals(false, salesIte1.addComment("John", "Not worth it", 0));
+    }
 }
+
