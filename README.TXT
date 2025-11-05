@@ -16,3 +16,10 @@ a test class that demonstrates some of the testing functionality. Testing is fur
 discussed in the book.
 
 NOTE: There are several serious errors to be found in these classes.
+
+Lab II
+12. Like in the sample image, the Test Results window shows no errors.
+
+13. Created a test class for Comment.
+
+14. Methods setUp() and tearDown() are automatically created upon the class' creation.
