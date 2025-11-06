@@ -105,7 +105,25 @@ public class SalesItemTest
         SalesItem salesIte1 = new SalesItem("Computer", 49999);
         salesIte1.showInfo();
     }
+
+    @Test
+    public void testNumberOfComments()
+    {
+        SalesItem salesIte1 = new SalesItem("Phone", 59999);
+        salesIte1.addComment("WI", "Good phone", 5);
+        salesIte1.addComment("CA", "Overpriced", 3);
+        assertEquals(2, salesIte1.getNumberOfComments());
+    }
+
+    @Test
+    public void testNoComments()
+    {
+        SalesItem salesIte1 = new SalesItem("Headphones", 19999);
+        assertEquals(0, salesIte1.getNumberOfComments());
+    }
 }
+
+
 
 
 

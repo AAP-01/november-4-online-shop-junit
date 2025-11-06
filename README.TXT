@@ -158,3 +158,36 @@ properly
     
 This one makes verifies that getMostHelpfulComment() returns null since there 
 are no comments.
+
+20.
+All other test cases I've added:
+    @Test
+    public void testNumberOfComments()
+    {
+        SalesItem salesIte1 = new SalesItem("Phone", 59999);
+        salesIte1.addComment("WI", "Good phone", 5);
+        salesIte1.addComment("CA", "Overpriced", 3);
+        assertEquals(2, salesIte1.getNumberOfComments());
+    }
+
+    @Test
+    public void testNoComments()
+    {
+        SalesItem salesIte1 = new SalesItem("Headphones", 19999);
+        assertEquals(0, salesIte1.getNumberOfComments());
+    }
+    
+    @Test
+    public void testDownvoteWithNoVotes()
+    {
+        Comment comment2 = new Comment("VA", "I like it", 4);
+        comment2.downvote();
+        assertEquals(-1, comment2.getVoteCount());
+    }
+
+    @Test
+    public void testAuthor()
+    {
+        Comment comment1 = new Comment("NM", "Works but expensive", 3);
+        assertEquals("NM", comment1.getAuthor());
+    }

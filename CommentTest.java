@@ -64,7 +64,24 @@ public class CommentTest
         comment1.downvote();
         assertEquals(1, comment1.getVoteCount());
     }
+
+    @Test
+    public void testDownvoteWithNoVotes()
+    {
+        Comment comment2 = new Comment("VA", "I like it", 4);
+        comment2.downvote();
+        assertEquals(-1, comment2.getVoteCount());
+    }
+
+    @Test
+    public void testAuthor()
+    {
+        Comment comment1 = new Comment("NM", "Works but expensive", 3);
+        assertEquals("NM", comment1.getAuthor());
+    }
 }
+
+
 
 
 
