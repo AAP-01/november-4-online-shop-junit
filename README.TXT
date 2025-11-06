@@ -191,3 +191,46 @@ All other test cases I've added:
         Comment comment1 = new Comment("NM", "Works but expensive", 3);
         assertEquals("NM", comment1.getAuthor());
     }
+    
+21.
+    public void showInfo()
+    {
+        System.out.println("*** " + name + " ***");
+        System.out.println("Price: " + priceString(price));
+        System.out.println();
+        System.out.println("Customer comments:");
+        int i = 0;
+        while(i < comments.size()) {
+            System.out.println("-------------------------------------------");
+            System.out.println(comments.get(i).getFullDetails());
+            i++;
+        }
+        System.out.println();
+        System.out.println("===========================================");
+    }
+    
+    private Comment findCommentByAuthor(String author)
+    {
+        int i = 0;
+        while(i < comments.size()) {
+            if(comments.get(i).getAuthor().equals(author)) {
+                i++;
+                return comments.get(i);
+            }
+        }
+        return null;
+    }
+    
+    public Comment findMostHelpfulComment()
+    {
+        int i = 1;
+        Comment best = comments.get(0);
+        while(i < comments.size()) {
+            Comment current = comments.get(i);
+            if(current.getVoteCount() > best.getVoteCount()) {
+                best = current;
+            }
+            i++;
+        }
+        return best;
+    }
