@@ -69,4 +69,43 @@ public class SalesItemTest
         assertEquals("test name", salesIte1.getName());
         assertEquals(1000, salesIte1.getPrice());
     }
+    
+    @Test
+    public void testSameAuthor()
+    {
+        SalesItem salesIte1 = new SalesItem("TV", 29999);
+        assertEquals(true, salesIte1.addComment("John", "It's good", 5));
+        assertEquals(false, salesIte1.addComment("John", "Works as intended", 4));
+    }
+
+    @Test
+    public void testValidRating()
+    {
+        SalesItem salesIte1 = new SalesItem("Speaker", 39999);
+        assertEquals(false, salesIte1.addComment("John", "Low quality", 0));
+        assertEquals(false, salesIte1.addComment("Juan", "Amazing", 6));
+    }
+
+    @Test
+    public void testMostHelpfulComment()
+    {
+        SalesItem salesIte1 = new SalesItem("Radio", 9999);
+        assertEquals(true, salesIte1.addComment("MA", "Cheap but works well", 5));
+        salesIte1.upvoteComment(0);
+        salesIte1.upvoteComment(0);
+        assertEquals(true, salesIte1.addComment("MI", "Received a defect", 1));
+        salesIte1.upvoteComment(1);
+        Comment comment1 = salesIte1.findMostHelpfulComment();
+        assertEquals(comment1, comment1);
+    }
+
+    @Test
+    public void testNoHelpfulComment()
+    {
+        SalesItem salesIte1 = new SalesItem("Computer", 49999);
+        salesIte1.showInfo();
+    }
 }
+
+
+

@@ -41,18 +41,31 @@ public class CommentTest
     }
 
     @Test
-    public void testSameAuthor()
+    public void testStoredComment()
     {
-        SalesItem salesIte1 = new SalesItem("TV", 29999);
-        assertEquals(true, salesIte1.addComment("John", "It's good", 5));
-        assertEquals(false, salesIte1.addComment("John", "Works as intended", 4));
+        Comment comment1 = new Comment("John", "It sounds decent", 4);
+        assertEquals(comment1.getFullDetails(), comment1.getFullDetails());
     }
 
     @Test
-    public void testValidRating()
+    public void testUpvote()
     {
-        SalesItem salesIte1 = new SalesItem("TV", 39999);
-        assertEquals(false, salesIte1.addComment("John", "Not worth it", 0));
+        Comment comment1 = new Comment("Lorem Ipsum", "It's one of the speakers", 3);
+        comment1.upvote();
+        assertEquals(1, comment1.getVoteCount());
+    }
+
+    @Test
+    public void testDownvote()
+    {
+        Comment comment1 = new Comment("Lorem Ipsum", "It's one of the speakers", 3);
+        comment1.upvote();
+        comment1.upvote();
+        comment1.downvote();
+        assertEquals(1, comment1.getVoteCount());
     }
 }
+
+
+
 

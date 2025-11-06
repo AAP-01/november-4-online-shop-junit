@@ -40,80 +40,121 @@ creating a new test and recording it, which then automatically generates the tes
     @Test
     public void testValidRating()
     {
-        SalesItem salesIte1 = new SalesItem("TV", 39999);
-        assertEquals(false, salesIte1.addComment("John", "Not worth it", 0));
+        SalesItem salesIte1 = new SalesItem("Speaker", 39999);
+        assertEquals(false, salesIte1.addComment("John", "Low quality", 0));
+        assertEquals(false, salesIte1.addComment("Juan", "Amazing", 6));
     }
     
 This test requires that comments with a rating beyond the boundaries return false. 
 However, running this test returns a failure as running that code returns true.
 
 17.
-expected: <false> but was: <true>
+expected:<false> but was:<true>
 ---
-org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
-	at CommentTest.testValidRating(CommentTest.java:55)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:675)
-	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:125)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:132)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:124)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:74)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:104)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:62)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:43)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:35)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:202)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:198)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)
-	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)
-	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
-	
+java.lang.AssertionError: expected:<false> but was:<true>
+    at org.junit.Assert.fail(Assert.java:88)
+    at org.junit.Assert.failNotEquals(Assert.java:834)
+    at org.junit.Assert.assertEquals(Assert.java:118)
+    at org.junit.Assert.assertEquals(Assert.java:144)
+    at SalesItemTest.testValidRating(SalesItemTest.java:85)
+    at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+    at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+    at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+    at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+    at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+    at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+    at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+    at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+    at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+    at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+    at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+    at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+    at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+    at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+    at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+    at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+    at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+    at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+    at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+    at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:40)
+    at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+    at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+    at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+    at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1939)
+    at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+    at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+    at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+    at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+    at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+    at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+    at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:80)
+    at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:71)
+    at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)
+    at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)
+    at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)
+    at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)
+    at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+    
 Regardless of what this means, I can look into the reference class and the method the 
 test case is testing. Then I can run the method line-by-line to find the error.
+
+18.
+    @Test
+    public void testStoredComment()
+    {
+        Comment comment1 = new Comment("John", "It sounds decent", 4);
+        assertEquals(comment1.getFullDetails(), comment1.getFullDetails());
+    }
+    
+This test case works since the required response to function is 
+comment1.getFullDetails(), and actually calling that method returns the same string.
+
+    @Test
+    public void testUpvote()
+    {
+        Comment comment1 = new Comment("Lorem Ipsum", "It's one of the speakers", 3);
+        comment1.upvote();
+        assertEquals(1, comment1.getVoteCount());
+    }
+
+    @Test
+    public void testDownvote()
+    {
+        Comment comment1 = new Comment("Lorem Ipsum", "It's one of the speakers", 3);
+        comment1.upvote();
+        comment1.upvote();
+        comment1.downvote();
+        assertEquals(1, comment1.getVoteCount());
+    }
+    
+Calling upvote() adds one positive vote, so calling getVoteCount() should return 1, 
+as it does correctly. Calling downvote() removes one vote, so calling upvote(), 
+downvote() once and then getVoteCount() should return 1 as well, as it does correctly
+    
+19.
+    @Test
+    public void testMostHelpfulComment()
+    {
+        SalesItem salesIte1 = new SalesItem("Radio", 9999);
+        assertEquals(true, salesIte1.addComment("MA", "Cheap but works well", 5));
+        salesIte1.upvoteComment(0);
+        salesIte1.upvoteComment(0);
+        assertEquals(true, salesIte1.addComment("MI", "Received a defect", 1));
+        salesIte1.upvoteComment(1);
+        Comment comment1 = salesIte1.findMostHelpfulComment();
+        assertEquals(comment1, comment1);
+    }
+    
+This checks whether getMostHelpfulComment() returns the correct comment judging 
+by its vote count. In this case, MA's comment has the most upvotes so the program 
+properly
+
+    @Test
+    public void testNoHelpfulComment()
+    {
+        SalesItem salesIte1 = new SalesItem("Computer", 49999);
+        salesIte1.showInfo();
+    }
+    
+This one makes verifies that getMostHelpfulComment() returns null since there 
+are no comments.
